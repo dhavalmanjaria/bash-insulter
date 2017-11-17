@@ -1,3 +1,24 @@
+# Enable additional insults
+if [ -f ~/.insults ]; then
+    source ~/.insults
+fi
+
+OTHER_INSULTS=()
+
+# Uncomment these lines to include these insults
+
+# Hal9000 insults
+#OTHER_INSULTS+=("${hal9000[@]}")
+
+# Classic sudo insults
+#OTHER_INSULTS+=("${classic[@]}")
+
+# CSOps Insults
+#OTHER_INSULTS+=("${csops[@]}")
+
+# Insults from the "Goon show."
+#OTHER_INSULTS+=("${goonshow[@]}")
+
 command_not_found_handle () {
     local INSULTS=(
         "Boooo!"
@@ -34,6 +55,9 @@ command_not_found_handle () {
         "Pro tip: type a valid command!"
         "Go outside."
     )
+
+    # Additional insults
+    INSULTS+=("${OTHER_INSULTS[@]}")
 
     # Seed "random" generator
     RANDOM=$(date +%s%N)
